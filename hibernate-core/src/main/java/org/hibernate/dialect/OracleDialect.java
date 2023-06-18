@@ -210,7 +210,10 @@ public class OracleDialect extends Dialect {
 
 	@Override
 	public int getPreferredSqlTypeCodeForBoolean() {
-		return Types.BIT;
+		if (getVersion().isSame(21) || getVersion().isBefore(21)) {
+			return Types.BIT;
+		}
+		return super.getPreferredSqlTypeCodeForBoolean();
 	}
 
 	@Override
