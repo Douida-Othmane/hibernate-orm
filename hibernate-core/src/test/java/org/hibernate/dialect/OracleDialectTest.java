@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RequiresDialect( OracleDialect.class )
 class OracleDialectTest {
-    @Mock
+    //@Mock
     DatabaseVersion databaseVersion;
 
     OracleDialect oracleDialect;
@@ -29,7 +29,7 @@ class OracleDialectTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        oracleDialect = new OracleDialect(databaseVersion);
+        oracleDialect = new OracleDialect(DatabaseVersion.make(23,1));
     }
 
     @Test
